@@ -1,6 +1,8 @@
 import React from "react";
 import { Play, Pause } from "../../assets";
 import { useDispatch, useSelector } from "react-redux";
+import { getTrack, setStatus } from "../../redux/player";
+import { setAuth } from "../../redux/auth";
 import "./style.scss";
 
 const LiteRow = ({ data, title }) => {
@@ -32,7 +34,7 @@ const LiteRow = ({ data, title }) => {
                   player?.status ? (
                     <button
                       onClick={() => {
-                        dispatch((false));
+                        dispatch(setStatus(false));
                       }}
                     >
                       <Pause width={"16px"} height={"16px"} />
@@ -45,12 +47,14 @@ const LiteRow = ({ data, title }) => {
                             player?.data?.type === elm?.type &&
                             player?.data?.id === elm?.id
                           ) {
-                            dispatch((true));
+                            dispatch(setStatus(true));
                           } else {
                             dispatch(
                               getTrack({ type: elm?.type, id: elm?.id })
                             );
                           }
+                        } else {
+                          dispatch(setAuth({ login: true }));
                         }
                       }}
                     >
