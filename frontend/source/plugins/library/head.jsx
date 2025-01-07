@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Down, MagnifyingGlass, Trash } from "../../assets";
+import { Down, MagnifyingGlass, Trash } from "../../accessories";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
 

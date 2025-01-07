@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Eye, EyeHide } from "../../assets";
+import { Eye, EyeHide } from "../../accessories";
 import "./style.scss";
 
 const Input = ({ name, placeholder, value, type, disable, inputHandle }) => {

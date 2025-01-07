@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from "react";
-import { Dots, Pause, Play } from "../../assets";
+import { Dots, Pause, Play } from "../../accessories";
 import { useDispatch, useSelector } from "react-redux";
-import { MusicIcon } from "../../assets";
+import { MusicIcon } from "../../accessories";
 import "./style.scss";
 
 const Collections = ({ data, collectionId, collectionType }) => {

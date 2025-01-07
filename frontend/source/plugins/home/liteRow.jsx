@@ -1,5 +1,5 @@
 import React from "react";
-import { Play, Pause } from "../../assets";
+import { Play, Pause } from "../../accessories";
 import { useDispatch, useSelector } from "react-redux";
 import { getTrack, setStatus } from "../../redux/player";
 import { setAuth } from "../../redux/auth";

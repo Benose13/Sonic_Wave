@@ -1,7 +1,11 @@
 import React, { forwardRef, useImperativeHandle, useRef } from "react";
-import { Disc, Expand, List, MenuBar, Mic, MusicIcon } from "../../assets";
+import { Disc, Expand, List, MenuBar, Mic, MusicIcon } from "../../accessories";
 import { useDispatch, useSelector } from "react-redux";
+import { setExpand } from "../../redux/additional";
+import { setAuth } from "../../redux/auth";
+import { setUser } from "../../redux/user";
 import { useLocation, useNavigate } from "react-router-dom";
+import instance from "../../library/axios";
 import "./style.scss";
 
 const Menu = forwardRef((params, ref) => {
@@ -107,7 +111,7 @@ const Menu = forwardRef((params, ref) => {
             <div className="dot" />
           </div>
           <div>
-            <h1>Sonicwave</h1>
+            <h1>Musicon</h1>
           </div>
           <div className="bar">
             <button
@@ -124,7 +128,7 @@ const Menu = forwardRef((params, ref) => {
           <div className="card">
             <h5>Hi {user ? user?.name : "Signup Now"}</h5>
 
-            <p>Follow your favorite artists and create unlimited playlists.</p>
+            <p>Follow your favorite artists while you create unlimited playlists.</p>
 
             <div className="btns">
               {user ? (
@@ -152,7 +156,7 @@ const Menu = forwardRef((params, ref) => {
                           }
                         }
                       } catch (err) {
-                        alert("Facing An Error");
+                        alert("Facing A Menu btn Error");
                       }
                     }}
                   >
@@ -160,10 +164,21 @@ const Menu = forwardRef((params, ref) => {
                   </button>
                 </>
               ) : (
-                
+                <>
+                  <button
+                    onClick={() => {
+                      dispatch(setAuth({ signup: true }));
+                    }}
+                  >
                     Signup
                   </button>
-                  
+                  <button
+                    onClick={() => {
+                      dispatch(setAuth({ login: true }));
+                    }}
+                  >
+                    Login
+                  </button>{" "}
                 </>
               )}
             </div>
@@ -280,7 +295,7 @@ const Menu = forwardRef((params, ref) => {
           </div>
 
           <div className="rights">
-            <p>@ Copyright {new Date().getFullYear()} Sonicwave</p>
+            <p>@ Copyright {new Date().getFullYear()} SonicWave Music</p>
           </div>
         </div>
       </div>

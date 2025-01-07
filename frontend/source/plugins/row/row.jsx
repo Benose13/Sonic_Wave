@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Dots, MusicIcon, Pause, Play, Plus } from "../../assets";
+import { Dots, MusicIcon, Pause, Play, Plus } from "../../accessories";
 import { useCarousel } from "../../hooks";
 import { useDispatch, useSelector } from "react-redux";
 import "./style.scss";

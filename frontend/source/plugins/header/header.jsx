@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useRef } from "react";
-import { MagnifyingGlass, MenuBar } from "../../assets";
+import { MagnifyingGlass, MenuBar } from "../../accessories";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./style.scss";
 

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Play, Heart, Share, MusicIcon, Pause } from "../../assets";
+import { Play, Heart, Share, MusicIcon, Pause } from "../../accessories";
 import { useDispatch, useSelector } from "react-redux";
 import "./style.scss";
 

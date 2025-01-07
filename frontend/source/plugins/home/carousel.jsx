@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Pause, Play } from "../../assets";
+import { Pause, Play } from "../../accessories";
 import { useCarousel } from "../../hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { getTrack, setStatus } from "../../redux/player";
