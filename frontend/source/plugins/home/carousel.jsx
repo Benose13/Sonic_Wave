@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Pause, Play } from "../../assets";
 import { useCarousel } from "../../hooks";
 import { useDispatch, useSelector } from "react-redux";
-import { getTrack, setStatus } from "../../redux/player";
 import "./style.scss";
 
 const Carousel = ({ title, data }) => {
@@ -75,12 +74,7 @@ const Carousel = ({ title, data }) => {
                           if (
                             player?.data?.type === elm?.type &&
                             player?.data?.id === elm?.id
-                          ) {
-                            dispatch(setStatus(true));
-                          } else {
-                            dispatch(
-                              getTrack({ type: elm?.type, id: elm?.id })
-                            );
+                          )
                           }
                         } 
                       }}
