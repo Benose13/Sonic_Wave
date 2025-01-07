@@ -1,14 +1,14 @@
 import { MongoClient } from "mongodb";
 
-let db = null;
+let database = null;
 
 export const ConnectDB = async (callback) => {
-  let dbName = "SonicWave";
+  let databaseName = "SonicWave";
   try {
     let res = await MongoClient.connect(process.env.MONGO_URL);
 
     if (res) {
-      db = res.db(dbName);
+      database = res.database(databaseName);
       callback(null, res);
     }
   } catch (err) {
@@ -16,4 +16,4 @@ export const ConnectDB = async (callback) => {
   }
 };
 
-export { db };
+export { database };
