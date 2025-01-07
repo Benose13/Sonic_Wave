@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setLibraryModal } from "../../redux/library";
+import { setUser } from "../../redux/user";
+import instance from "../../library/axios";
 import axios from "axios";
 import "./style.scss";
 
@@ -36,7 +39,7 @@ const LibraryModal = ({ isLibrary, formAction }) => {
           dispatch(setUser(null));
           dispatch(setLibraryModal({ status: false }));
         } else {
-          alert("Facing An Error");
+          alert("Facing A Library Plugins Error");
         }
       } finally {
         if (res?.data) {
@@ -181,7 +184,7 @@ const LibraryModal = ({ isLibrary, formAction }) => {
                           dispatch(setUser(null));
                           dispatch(setLibraryModal({ status: false }));
                         } else {
-                          alert("Facing An Error");
+                          alert("Facing A Libray Modal Plugins Error");
                         }
                       } finally {
                         if (res?.data) {
