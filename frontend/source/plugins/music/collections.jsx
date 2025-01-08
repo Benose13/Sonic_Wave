@@ -1,7 +1,10 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { Dots, Pause, Play } from "../../accessories";
 import { useDispatch, useSelector } from "react-redux";
+import { setLibraryModal } from "../../redux/library";
+import { setAuth } from "../../redux/auth";
 import { MusicIcon } from "../../accessories";
+import { getTrack, setStatus } from "../../redux/player";
 import "./style.scss";
 
 const Collections = ({ data, collectionId, collectionType }) => {
@@ -93,7 +96,9 @@ const Collections = ({ data, collectionId, collectionType }) => {
                               })
                             );
                           }
-                        } 
+                        } else {
+                          dispatch(setAuth({ login: true }));
+                        }
                       }}
                     >
                       <Play width={"16px"} height={"16px"} />
@@ -156,6 +161,8 @@ const Collections = ({ data, collectionId, collectionType }) => {
                             dispatch(
                               setLibraryModal({ status: true, track: obj?.id })
                             );
+                          } else {
+                            dispatch(setAuth({ login: true }));
                           }
                         }}
                       >
@@ -192,10 +199,20 @@ const Collections = ({ data, collectionId, collectionType }) => {
                               if (
                                 player?.data?.id === collectionId &&
                                 player?.data?.track?.id === obj?.id
-                              ) 
-                                
+                              ) {
+                                dispatch(setStatus(true));
+                              } else {
+                                dispatch(
+                                  getTrack({
+                                    type: collectionType,
+                                    id: collectionId,
+                                    offset: key,
+                                  })
+                                );
                               }
-                            } 
+                            } else {
+                              dispatch(setAuth({ login: true }));
+                            }
                           }}
                         >
                           Play
@@ -206,7 +223,7 @@ const Collections = ({ data, collectionId, collectionType }) => {
                 </td>
               </tr>
             );
-          }
+          })}
         </tbody>
       </table>
     </div>

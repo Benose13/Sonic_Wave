@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import { Play, Heart, Share, MusicIcon, Pause } from "../../accessories";
+import { getTrack, setStatus } from "../../redux/player";
 import { useDispatch, useSelector } from "react-redux";
+import { setAuth } from "../../redux/auth";
 import "./style.scss";
 
 const Banner = ({ data, libraryAction, inLibrary }) => {
@@ -140,7 +142,13 @@ const Banner = ({ data, libraryAction, inLibrary }) => {
                 if (
                   player?.data?.type === data?.type &&
                   player?.data?.id === data?.id
-                ) 
+                ) {
+                  dispatch(setStatus(true));
+                } else {
+                  dispatch(getTrack({ type: data?.type, id: data?.id }));
+                }
+              } else {
+                dispatch(setAuth({ login: true }));
               }
             }}
           >
