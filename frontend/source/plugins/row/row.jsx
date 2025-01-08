@@ -1,8 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Dots, MusicIcon, Pause, Play, Plus } from "../../accessories";
-import { useCarousel } from "../../hooks";
+import { useCarousel } from "../../hook";
 import { useDispatch, useSelector } from "react-redux";
+import { setLibraryModal } from "../../redux/library";
+import { getTrack, setStatus } from "../../redux/player";
+import { setAuth } from "../../redux/auth";
 import "./style.scss";
 
 const Row = ({ title, data, isCarousel, isRound, isLibrary }) => {
