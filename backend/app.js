@@ -4,6 +4,14 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
 
+// Routes
+
+import userRoute from "./routes/user.js";
+import musicRoute from "./routes/music.js";
+
+// DB
+import { ConnectDB } from "./database/connection.js";
+
 dotenv.config();
 
 const app = express();
@@ -17,7 +25,9 @@ app.use(cors({ credentials: true, origin: process.env.SITE_URL }));
 app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 
-
+// routes
+app.use("/api/user/", userRoute);
+app.use("/api/music/", musicRoute);
 
 app.get("/api", (req, res) => {
   res.send("SonicWave Api");
@@ -25,7 +35,7 @@ app.get("/api", (req, res) => {
 
 // for render react static files
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(path.resolve(`${path.dirname("")}/`)));
+  res.sendFile(path.join(path.resolve(`${path.dirname("")}/dist/index.html`)));
 });
 
 app.listen(port, () => {
