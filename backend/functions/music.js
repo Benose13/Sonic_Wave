@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { database, db } from "../database/connection.js";
+import { database, database } from "../database/connection.js";
 import collections from "../database/collections.js";
 
 export default {
