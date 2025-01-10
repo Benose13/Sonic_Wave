@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "author": "ansonbenny",
+  "author": "benose13",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
