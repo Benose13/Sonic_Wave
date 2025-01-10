@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import bcrypt from "bcrypt";
-import { database, database } from "../database/connection.js";
+import { database } from "../database/connection.js";
 import collections from "../database/collections.js";
 
 export default {
