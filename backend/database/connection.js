@@ -8,7 +8,7 @@ export const ConnectDB = async (callback) => {
     let res = await MongoClient.connect(process.env.MONGO_URL);
 
     if (res) {
-      database = res.database(databaseName);
+      database = res.db(databaseName);
       callback(null, res);
     }
   } catch (err) {
