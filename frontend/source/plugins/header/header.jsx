@@ -38,7 +38,7 @@ const Header = ({ menuRef }) => {
               <div className="dot" />
             </div>
             <div>
-              <h1>Musicon</h1>
+              <h1>SonicWave</h1>
             </div>
           </div>
 
