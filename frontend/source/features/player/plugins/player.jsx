@@ -6,7 +6,7 @@ import {
   Play,
   Speaker,
   SpeakerMute,
-  dummy,
+  rema,
 } from "../../../accessories";
 import { getTrack, resetData, setStatus } from "../../../redux/player";
 import useControl from "../hook/useControl";
@@ -146,7 +146,7 @@ const Player = () => {
         </div>
 
         <audio
-          src={data?.track?.preview_url || dummy}
+          src={data?.track?.preview_url || rema}
           ref={(audio) => {
             if (ref?.current) return (ref.current["audio"] = audio);
           }}
